@@ -33,16 +33,25 @@
     if(opt.role == "alert"){
       // maintain only one instance of alert at a time, opt.id is not reflected here
       $('#announceAlert').remove();
-      var announcement = "<div id='announceAlert' class='announceThis' role='alert' aria-live='alert'><p>" + opt.message + "</p></div>";
-      $('body').append(announcement); 
+
+      // create container
+      var announcement = "<div id='announceAlert' class='announceThis' role='alert' aria-live='assertive'></div>";
+
+      // append to page
+      $('body').append(announcement);
+
+      // delay allows live regions to be built dynamically and announced
+      setTimeout(function(){
+        $("#announceAlert").append("<p>" + opt.message + "</p>");
+      }, 250);
 
     } else {
       // if element has not been created, create it
-        if(!$("#" + opt.id).length){
+      if(!$("#" + opt.id).length){
         var announcement = "<div id=" + opt.id;
             announcement += " class='announceThis'";
             announcement += " role=" + opt.role;
-            announcement += " aria-live=" + opt.ariaLive;
+            announcement += " aria-live=" + opt.politeness;
         if(opt.ariaAtomic){
             announcement += " aria-atomic=" + opt.ariaAtomic;
         }
@@ -51,10 +60,11 @@
         }
             announcement += "></div>";
 
+        // append to page
         $('body').append(announcement);
 
       } 
-      // delay allows non-alert live regions to be built dynamically and announced
+      // delay allows live regions to be built dynamically and announced
       setTimeout(function(){
         $("#" + opt.id).append("<p>" + opt.message + "</p>");
       }, 250);
@@ -63,12 +73,12 @@
   };
 
   $.announceThis.defaults = {
-        id: 'announceThis',         // id of live region
-        role: 'log',                // log, alert, status
-        ariaLive: 'assertive',      // polite, assertive, alert (automatically becomes "alert" when role: "alert")
-        ariaAtomic: false,          // present live region as a whole (cannot be used with aria-relevant) 
-        ariaRelevant: '',           // 'additions', 'additions removals', 'removals' - does not work with role: alert
-        message: ''                 // message to pass to screenreader
+        id: "announceThis",       // id of live region
+        role: "log",              // log, alert, status, progressbar, marquee, timer
+        politeness: "assertive",  // polite, assertive, alert (automatically becomes "alert" when role: "alert")
+        ariaAtomic: false,        // present live region as a whole (cannot be used with aria-relevant) 
+        ariaRelevant: "",         // 'additions', 'additions removals', 'removals' - does not work with role: alert
+        message: ""               // message to pass to screenreader
     };
 
 })(jQuery);
