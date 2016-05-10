@@ -33,5 +33,9 @@ Accessibility messaging system for screenreaders; easy aria-live regions
     };
 ```
 
+## Notes
+* When using the same ID, the first instance of options will be the options used
+* role: 'alert' ignores all options except for message
+
 ## Known Issues
 * 'aria-atomic' is flaky across different browser/screenreader combinations - reading: http://terrillthompson.com/tests/aria/live-scores.html
