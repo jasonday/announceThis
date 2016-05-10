@@ -39,8 +39,7 @@
         message<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>This is an example of an alert message<span class="pl-pds">'</span></span>
     });</pre></div>
 
-<h3>
-<a id="status" class="anchor" href="#status" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Status</h3>
+<button id="example2" class="button">Example 2: Status</button>
 
 <div class="highlight highlight-source-js"><pre>    <span class="pl-smi">$</span>.<span class="pl-en">announceThis</span>({
         id<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>statusContainer<span class="pl-pds">'</span></span>,
@@ -82,6 +81,27 @@
   <script type="text/javascript" src="https://rawgit.com/jasonday/announceThis/master/jquery.announcethis.js"></script>
   <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4f84372a0f313719"></script>
 
+  <script>
+    var counter1 = 1;
+    $('#example1').on('click', function(){
+      var number = counter1++
+      $.announceThis({
+        role: 'alert',
+        message: 'This is an example of an alert message' + number
+      });
+    });
+
+    var counter2 = 1;
+    $('#example2').on('click', function(){
+      var number = counter2++
+      $.announceThis({
+        id: "statusContainer",
+        role: "status",
+        ariaRelevant: "additions removals",
+        message: "This is an example of an updated status message " + number
+      });
+    });
+  </script>
   
 
   </body>
