@@ -31,7 +31,7 @@ a {
 .btn:hover {
   color: #fff;
   text-decoration: none;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.4); }
 
 .logo {
   width: 100px;
