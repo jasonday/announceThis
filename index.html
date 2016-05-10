@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>announceThis by jasonday</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">announceThis</h1>
+      <h2 class="project-tagline">Accessibility messaging system for screenreaders; easy aria-live regions</h2>
+      <a href="https://github.com/jasonday/announceThis" class="btn">View on GitHub</a>
+      <a href="https://github.com/jasonday/announceThis/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/jasonday/announceThis/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="announcethis" class="anchor" href="#announcethis" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>announceThis</h1>
+
+<p>Accessibility messaging system for screenreaders; easy aria-live regions</p>
+
+<h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage</h2>
+
+<h3>
+<a id="alert" class="anchor" href="#alert" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Alert</h3>
+
+<div class="highlight highlight-source-js"><pre>    <span class="pl-smi">$</span>.<span class="pl-en">announceThis</span>({
+        role<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>alert<span class="pl-pds">'</span></span>,
+        message<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>This is an example of an alert message<span class="pl-pds">'</span></span>
+    });</pre></div>
+
+<h3>
+<a id="status" class="anchor" href="#status" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Status</h3>
+
+<div class="highlight highlight-source-js"><pre>    <span class="pl-smi">$</span>.<span class="pl-en">announceThis</span>({
+        id<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>statusContainer<span class="pl-pds">'</span></span>,
+        role<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>status<span class="pl-pds">'</span></span>,
+        ariaLive<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>assertive<span class="pl-pds">'</span></span>
+        message<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>This is an example of an updated status message<span class="pl-pds">'</span></span>,
+        ariaRelevant<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>additions removals<span class="pl-pds">'</span></span>
+    });</pre></div>
+
+<h3>
+<a id="all-options" class="anchor" href="#all-options" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>All options</h3>
+
+<div class="highlight highlight-source-js"><pre>    <span class="pl-smi">$</span>.<span class="pl-smi">announceThis</span>.<span class="pl-smi">defaults</span> <span class="pl-k">=</span> {
+        id<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>announceThis<span class="pl-pds">"</span></span>,       <span class="pl-c">// id of live region</span>
+        role<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>status<span class="pl-pds">"</span></span>,           <span class="pl-c">// log, alert, status, progressbar, marquee, timer</span>
+        ariaLive<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>assertive<span class="pl-pds">"</span></span>,    <span class="pl-c">// polite, assertive, alert (automatically becomes "alert" when role: "alert")</span>
+        ariaAtomic<span class="pl-k">:</span> <span class="pl-c1">false</span>,        <span class="pl-c">// present live region as a whole (support across screenreader/browser combinations is sketchy)</span>
+        ariaRelevant<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span><span class="pl-pds">"</span></span>,         <span class="pl-c">// 'additions', 'additions removals', 'removals' - does not work with role: alert</span>
+        message<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span><span class="pl-pds">"</span></span>               <span class="pl-c">// message to pass to screenreader</span>
+    };</pre></div>
+
+<h2>
+<a id="known-issues" class="anchor" href="#known-issues" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Known Issues</h2>
+
+<ul>
+<li>'aria-atomic' is flaky across different browser/screenreader combinations - reading: <a href="http://terrillthompson.com/tests/aria/live-scores.html">http://terrillthompson.com/tests/aria/live-scores.html</a>
+</li>
+</ul>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/jasonday/announceThis">announceThis</a> is maintained by <a href="https://github.com/jasonday">jasonday</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
