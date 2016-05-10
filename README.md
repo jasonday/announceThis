@@ -25,7 +25,7 @@ Accessibility messaging system for screenreaders; easy aria-live regions
 ```javascript
 	$.announceThis.defaults = {
         id: "announceThis",       // id of live region
-        role: "status",              // log, alert, status, progressbar, marquee, timer
+        role: "status",           // log, alert, status, progressbar, marquee, timer
         ariaLive: "assertive",    // polite, assertive, alert (automatically becomes "alert" when role: "alert")
         ariaAtomic: false,        // present live region as a whole (support across screenreader/browser combinations is sketchy)
         ariaRelevant: "",         // 'additions', 'additions removals', 'removals' - does not work with role: alert
