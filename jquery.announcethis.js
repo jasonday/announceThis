@@ -11,16 +11,17 @@
  * Usage:
  *
  * $.announceThis({
- *       id: 'announceThis',       // id of live region
- *       role: 'log',              // log, alert, status, timer
- *       politeness: 'assertive',  // polite, assertive, alert (automatically becomes "alert" when role: "alert")
- *       ariaAtomic: false,        // present live region as a whole (cannot be used with aria-relevant) 
- *       ariaRelevant: '',         // 'additions', 'additions removals', 'removals' - does not work with role: alert
- *       message: ''               // message to pass to screenreader
+ *       id: 'announceThis',        // id of live region
+ *       role: 'log',               // log, alert, status, timer
+ *       ariaLive: 'assertive',     // polite, assertive, alert (automatically becomes "alert" when role: "alert")
+ *       ariaAtomic: false,         // present live region as a whole (cannot be used with aria-relevant) 
+ *       ariaRelevant: '',          // 'additions', 'additions removals', 'removals' - does not work with role: alert
+ *       message: ''                // message to pass to screenreader
  *   });
  *
  * Notes:
  *  - When using the same ID, the first instance of options will be the options used
+ *  - role: 'alert' ignores all options except for message
  */
 ;
 (function($) {
@@ -41,7 +42,7 @@
         var announcement = "<div id=" + opt.id;
             announcement += " class='announceThis'";
             announcement += " role=" + opt.role;
-            announcement += " aria-live=" + opt.politeness;
+            announcement += " aria-live=" + opt.ariaLive;
         if(opt.ariaAtomic){
             announcement += " aria-atomic=" + opt.ariaAtomic;
         }
@@ -62,12 +63,12 @@
   };
 
   $.announceThis.defaults = {
-        id: 'announceThis',       // id of live region
-        role: 'log',              // log, alert, status, progressbar, marquee, timer
-        politeness: 'assertive',  // polite, assertive, alert (automatically becomes "alert" when role: "alert")
-        ariaAtomic: false,        // present live region as a whole (cannot be used with aria-relevant) 
-        ariaRelevant: '',         // 'additions', 'additions removals', 'removals' - does not work with role: alert
-        message: ''               // message to pass to screenreader
+        id: 'announceThis',         // id of live region
+        role: 'log',                // log, alert, status
+        ariaLive: 'assertive',      // polite, assertive, alert (automatically becomes "alert" when role: "alert")
+        ariaAtomic: false,          // present live region as a whole (cannot be used with aria-relevant) 
+        ariaRelevant: '',           // 'additions', 'additions removals', 'removals' - does not work with role: alert
+        message: ''                 // message to pass to screenreader
     };
 
 })(jQuery);
