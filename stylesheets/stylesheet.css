@@ -45,13 +45,7 @@ a {
   padding: 10px 0 0;
   background: #e9e9e9;
 }
-.addthis_native_toolbox {
-  text-align: center;
-}
-#atstbx {
-  display: inline-block !important;
-  width: auto;
-}
+
 
 .announceThis {
   text-indent: -9999px;
