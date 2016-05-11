@@ -53,6 +53,10 @@ a {
   top: 0;
 }
 
+.addthis_native_toolbox, .git-buttons {
+  display: inline-block;
+}
+
 @media screen and (min-width: 64em) {
   .btn {
     padding: 0.75rem 1rem; } }
@@ -222,19 +226,19 @@ a {
   border: 0; }
 
 @media screen and (min-width: 64em) {
-  .main-content {
+  .main-content, .wrapper {
     max-width: 64rem;
     padding: 2rem 6rem;
     margin: 0 auto;
     font-size: 1.1rem; } }
 
 @media screen and (min-width: 42em) and (max-width: 64em) {
-  .main-content {
+  .main-content, .wrapper {
     padding: 2rem 4rem;
     font-size: 1.1rem; } }
 
 @media screen and (max-width: 42em) {
-  .main-content {
+  .main-content , .wrapper {
     padding: 2rem 1rem;
     font-size: 1rem; } }
 
