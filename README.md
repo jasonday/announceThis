@@ -1,5 +1,5 @@
 # announceThis
-Accessibility messaging system for screenreaders; easy aria-live regions
+announceThis is a jquery plugin to dynamically create aria-live regions such as alerts, status messages, and log updates programmatically.
 
 ## Usage
 ### Alert
